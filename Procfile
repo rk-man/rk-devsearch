@@ -1,0 +1,1 @@
+web: gunicorn RKDevSearch.wsgi --log-file -

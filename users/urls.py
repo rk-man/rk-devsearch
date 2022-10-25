@@ -1,0 +1,19 @@
+from django.urls import path
+
+# importing views
+from users.views import profiles, userProfile, loginUser, logoutUser, registerUser, userAccount, editAccount, createSkill, updateSkill, deleteSkill
+
+
+urlpatterns = [
+    path("login/", loginUser, name="login"),
+    path("logout/", logoutUser, name="logout"),
+    path("register/", registerUser, name="register"),
+    path("", profiles, name="profiles"),
+    path("profile/<str:pk>/", userProfile, name="user-profile"),
+    path("account/", userAccount, name="user-account"),
+    path("account/edit", editAccount, name="edit-account"),
+    path("add-skill/", createSkill, name="create-skill"),
+    path("update-skill/<str:pk>/", updateSkill, name="update-skill"),
+    path("delete-skill/<str:pk>/", deleteSkill, name="delete-skill")
+
+]
