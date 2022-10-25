@@ -29,8 +29,7 @@ SECRET_KEY = 'django-insecure-laqkv_l4@c4xuak_4*cbun^fmpl=)b$r_=4htp*(x&gsb4u2&^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1',
-                 'https://rk-devsearch.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 
 # allow all origins
 CORS_ALLOW_ALL_ORIGINS = True
@@ -155,9 +154,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'devsearch',
-        'USER': "naveen_rk",
-        "PASSWORD": "Naveen2003",
-        "HOST": "database-1.cet1ydcpvr6c.ap-northeast-1.rds.amazonaws.com",
+        'USER': os.environ.get('DB_USER'),
+        "PASSWORD": os.environ.get('DB_PASS'),
+        "HOST": os.environ.get('DB_HOST'),
         "PORT": "5432"
     }
 }
@@ -225,9 +224,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
-AWS_ACCESS_KEY_ID = "AKIA2YSWGH56WXSZ6GN7"
-AWS_SECRET_ACCESS_KEY = "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"
-AWS_STORAGE_BUCKET_NAME = "rk-devsearch-bucket"
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 AWS_QUERYSTRING_AUTH = False
 
